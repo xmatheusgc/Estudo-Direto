@@ -1,0 +1,194 @@
+.calendar-main {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+.calendar-container {
+    width: 90%;
+    max-width: 900px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--secondary-text-color);
+    color: white;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.calendar-header h2 {
+    margin: 0;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+}
+
+.calendar-day, .calendar-date {
+    padding: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.calendar-date {
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    transition: ease .1s;
+}
+
+.calendar-date:hover {
+    background-color: var(--secondary-text-color);
+    transition: ease .1s;
+    color: white;
+}
+
+.calendar-date .event {
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: white;
+}
+
+.event {
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: white;
+    max-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.event.Pessoal {
+    background-color: #ff6347;
+}
+
+.event.Trabalho {
+    background-color: #4682b4;
+}
+
+.event.Estudos {
+    background-color: #c331e0;
+}
+
+.event.Outro {
+    background-color: #32cd32;
+}
+
+.event.expanded {
+    white-space: normal;
+    max-width: none;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: var(--main-color);
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    color: var(--main-text-color);
+    font-weight: 500;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.modal-content h2 {
+    color: var(--secondary-text-color);
+}
+
+#event-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#event-form input, select {
+    border: none;
+    padding: 10px 5px 10px 20px;
+    background: var(--input-color);
+    color: var(--main-text-color);
+    border-radius: 16px;
+    outline: transparent;
+    font-weight: 600;
+    transition: all 0.2s ease-in;
+    margin: 10px 5px 5px 0px ;
+}
+
+#event-form input::placeholder {
+    color: var(--main-text-color);
+    font-weight: 600;
+}
+
+#event-form button {
+    padding: 10px;
+    border-radius: 16px;
+    border: none;
+    background-color: var(--secondary-text-color);
+    color: #fff;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.close {
+    color: var(--main-text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: ease .1s;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--main-text-color-hover);
+    text-decoration: none;
+    cursor: pointer;
+    transition: ease .1s;
+}

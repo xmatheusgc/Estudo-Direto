@@ -1,0 +1,91 @@
+.titles {
+    color: var(--secondary-text-color);
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-color);
+    height: 400px; 
+    overflow: hidden;
+    border: solid 1px var(--border-color);
+    border-radius: 16px; 
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.banner 
+.content {
+    color: var(--main-text-color);
+    font-size: 1.8em;
+    text-align: start;
+}
+
+.banner-btn {
+    padding: 10px;
+    width: 40%;
+    border: none;
+    border-radius: 16px;
+    background-color: var(--secondary-text-color);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 3rem;
+    cursor: pointer;
+    transition: ease .1s;
+}
+
+.banner-btn:hover {
+    background-color: var(--main-text-color-hover);
+    transition: ease .1s;
+}
+
+.banner img {
+    width: 50vh;
+    margin-left: 100px;
+    color: #6c63ff;
+}
+
+.cursos-populares, 
+.depoimentos, 
+.newsletter {
+    padding: 2rem 0;
+}
+
+.cursos-lista {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.curso-item {
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background-color: var(--main-color);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 3rem;
+    width: calc(50% - 1rem);
+    color: var(--main-text-color);
+    transition: ease .1s;
+    cursor: pointer;
+}
+
+.curso-item:hover {
+    transform: scale(1.01);
+    transition: ease .1s;
+}
+
+.curso-item img {
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.depoimentos 
+.depoimento-item {
+    margin: 1rem 0 1rem 0;
+}
+
+.depoimentos {
+    color: var(--main-text-color);
+}
