@@ -1,9 +1,9 @@
 var btnSend = document.querySelector("#chat-send-btn")
-btnSend.addEventListener('click', sendMessage)
+btnSend?.addEventListener('click', sendMessage)
 
 var txtMessage = document.querySelector("#chat-text-box")
 
-txtMessage.addEventListener('keydown', function(event) {
+txtMessage?.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         sendMessage()
     }
@@ -32,10 +32,10 @@ function sendMessage() {
 var menu = document.querySelector(".menu")
 
 var btnAddFriend = document.querySelector("#btn-add-friend")
-btnAddFriend.addEventListener('click', showFriendMenu)
+btnAddFriend?.addEventListener('click', showFriendMenu)
 
 var btnVoltar = document.querySelector("#btn-exit-menu");
-btnVoltar.addEventListener('click', showFriendMenu)
+btnVoltar?.addEventListener('click', showFriendMenu)
 
 var overlayIsHidden = true
 

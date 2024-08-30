@@ -21,6 +21,20 @@ class PageController extends Controller
         return view('layouts.courses');
     }
 
+    // Telas de video Temp
+
+    public function video1()
+    {
+        return view('layouts.video1');
+    }
+
+    public function video2()
+    {
+        return view('layouts.video2');
+    }
+
+    // 
+
     public function contact()
     {
         return view('layouts.contact');

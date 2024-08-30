@@ -24,11 +24,17 @@
 
 .post h2 {
     margin-top: 0;
-    color: var(--main-text-color);
+    color: var(--secondary-text-color);
 }
 
 .post p {
     color: var(--main-text-color);
+    font-weight: 500;
+}
+
+.post p a {
+    color: var(--secondary-text-color);
+    font-weight: 700;
 }
 
 .meta {
@@ -57,14 +63,21 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.widget h3, p {
+.widget h3 {
+    color: var(--secondary-text-color);
+}
+
+.widget p {
+    font-weight: 500;
     color: var(--main-text-color);
 }
 
 .widget a {
-    color: var(--secondary-text-color);
+    color: var(--main-text-color);
+    transition: ease .1s;
 }
 
 .widget a:hover {
+    color: var(--secondary-text-color);
     text-decoration: underline;
 } 

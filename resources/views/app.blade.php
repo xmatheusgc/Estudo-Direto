@@ -20,11 +20,19 @@
 
         <div class="nav-list-container nav-section">
             <ul class="nav-list">
-                <li class="nav-list-item"><a href="/">Início</a></li>
-                <li><a href="/contact">Contato</a></li>
-                <li><a href="/about">Sobre</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/courses">Cursos</a></li>
+                @if(Auth::check())
+                    <li class="nav-list-item"><a href="/">Início</a></li>
+                    <li><a href="/community">Comunidade</a></li>
+                    <li><a href="/calendar">Caledário</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/courses">Cursos</a></li>
+                @else
+                    <li class="nav-list-item"><a href="/">Início</a></li>
+                    <li><a href="/courses">Cursos</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/about">Sobre</a></li>
+                    <li><a href="/contact">Contato</a></li>
+                @endif
             </ul>
         </div>
 
@@ -53,6 +61,26 @@
     </nav>     
 
     @yield('content')
+
+    @if(Auth::check())
+        <div class="clock-button" id="btn-open-clock">
+            <i class='bx bx-timer'></i>  
+        </div>
+
+        <div class="clock-menu" id="clock-menu">
+            <div class="close-clock-cover"><p id="btn-close-clock">x</p></div>
+            <div class="timer">
+                <div class="timer-numbers">
+                    <span id="timer-num">00:00,00</span>
+                </div>
+            
+                <div class="timer-tools">   
+                    <button class="timer-tools-btn" id="start-btn">Iniciar</button>
+                    <button class="timer-tools-btn" id="reset-btn">Zerar</button>
+                </div>
+            </div>
+        </div>
+    @endif
 
     <footer>
         <ul class="footer-list">

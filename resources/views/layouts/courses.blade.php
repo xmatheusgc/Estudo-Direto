@@ -32,7 +32,7 @@
                     <span>Duração: 10 horas</span>
                     <span>Nível: Intermediário</span>
                 </div>
-                <a href="#" class="btn">Ver Curso</a>
+                <a href="/courses/video1" class="btn">Ver Curso</a>
             </div>
         </article>
 
@@ -45,7 +45,7 @@
                     <span>Duração: 15 horas</span>
                     <span>Nível: Avançado</span>
                 </div>
-                <a href="#" class="btn">Ver Curso</a>
+                <a href="/courses/video2" class="btn">Ver Curso</a>
             </div>
         </article>
     </section>

@@ -16,14 +16,19 @@ document.addEventListener('DOMContentLoaded', function() {
     let events = {}; // Object to hold events
 
     function renderCalendar(month, year) {
-        monthYear.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+        if (monthYear) {
+            monthYear.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+        }
 
-        calendarDays.innerHTML = '';
+        if (calendarDays) {
+            calendarDays.innerHTML = '';
+        }
+
         const firstDay = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
 
         for (let i = 0; i < firstDay; i++) {
-            calendarDays.appendChild(document.createElement('div'));
+            calendarDays?.appendChild(document.createElement('div'));
         }
 
         for (let i = 1; i <= daysInMonth; i++) {
@@ -53,11 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 eventModal.style.display = 'block';
             });
 
-            calendarDays.appendChild(dayElement);
+            calendarDays?.appendChild(dayElement);
         }
     }
 
-    prevMonthButton.addEventListener('click', function() {
+    prevMonthButton?.addEventListener('click', function() {
         currentMonth--;
         if (currentMonth < 0) {
             currentMonth = 11;
@@ -66,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         renderCalendar(currentMonth, currentYear);
     });
 
-    nextMonthButton.addEventListener('click', function() {
+    nextMonthButton?.addEventListener('click', function() {
         currentMonth++;
         if (currentMonth > 11) {
             currentMonth = 0;
@@ -75,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         renderCalendar(currentMonth, currentYear);
     });
 
-    closeModal.addEventListener('click', function() {
+    closeModal?.addEventListener('click', function() {
         eventModal.style.display = 'none';
     });
 
@@ -85,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    eventForm.addEventListener('submit', function(event) {
+    eventForm?.addEventListener('submit', function(event) {
         event.preventDefault();
         const date = eventDateInput.value;
         const text = eventTextInput.value;

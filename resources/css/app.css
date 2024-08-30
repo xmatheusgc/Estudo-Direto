@@ -8,8 +8,9 @@
 @import './views/welcome.css';
 @import './views/user-profile.css';
 @import './views/auth.css';
-@import './views/activities.css';
+@import './views/timer.css';
 
+@import './views/video.css';
 
 * {
     box-sizing: border-box;
@@ -178,6 +179,7 @@ footer {
 }
 
 .footer-list a:hover {
+    text-decoration: underline;
     color: #cfcfcf;
 }
 

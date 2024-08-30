@@ -1,0 +1,99 @@
+.clock-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    background-color: var(--main-color);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 99px;
+    width: fit-content;
+    padding: 20px;
+    font-size: 1.7em;
+    line-height: 0;
+    color: var(--main-text-color);
+    z-index: 999;
+    cursor: pointer;
+    transition: ease .1s;
+    display: block;
+}
+
+.timer-button:hover {
+    transform: scale(1.1);
+    color: var(--main-text-color-hover);
+}
+
+.close-clock-cover {
+    position: absolute;
+    top: -26px;
+    right: 5%;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--main-color);
+    cursor: pointer;
+    padding: 5px 5px 0 5px;
+}
+
+.close-clock-cover p {
+    padding: 10px 5px;
+    line-height: 0;
+    border-radius: 7px;
+    font-weight: 600;  
+    transition: ease .1s; 
+}
+
+.close-clock-cover:hover p {
+    background: rgba(255, 0, 0, 0.644);
+    color: #FFF;
+}
+
+.clock-menu {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 2%;
+    min-width: 330px;
+    padding: 20px 50px;
+    border: 1px solid var(--border-color);
+    background-color: var(--main-color);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 16px;
+    display: none;
+}
+
+.timer {
+    font-weight: 600;
+    color: var(--main-text-color);
+}
+
+.timer .timer-numbers {
+    padding: 20px;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.timer-tools {
+    text-align: center;
+}
+
+.timer-tools-btn {
+    min-width: 100px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--secondary-text-color);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 16px;
+    color: #FFF;
+    font-weight: 500;
+    cursor: pointer;
+    transition: ease .1s;
+}
+
+.timer-tools-btn:hover {
+    transform: scale(1.05);
+}
+
