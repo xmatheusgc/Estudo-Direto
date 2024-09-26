@@ -11,7 +11,7 @@
             <p>Transforme seus estudos com organização e eficiência.</p>
             <button class="banner-btn">Saiba mais!</button>
         </div>
-        <img class="banner-img" src="img/home-screen-banner-light.svg" alt="Estudos Online">
+        <img class="banner-img" src="images/home-screen-banner-light.svg" alt="Estudos Online">
     </section>
     
     <section class="cursos-populares">

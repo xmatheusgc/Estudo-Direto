@@ -5,8 +5,18 @@
 @section('content')
 
 <main id="login-screen">
+
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            <div class="error-background">
+                <p id="lbl-error">{{ $error }}</p>  
+            </div>
+        @endforeach
+    @endif  
+
     <form action="/auth" method="POST" class="login-form">
         @csrf
+
         <h1 class="login-title">Entrar</h1>
 
         <div class="input-box">
@@ -35,12 +45,6 @@
             <a href="/users/create-account">Criar</a>
         </p>
     </form>
-
-    @if($errors->any())
-        @foreach($errors->all() as $error)
-            <p id="lbl-error">{{ $error }}</p>
-        @endforeach
-    @endif
 </main>
 
 @endsection  

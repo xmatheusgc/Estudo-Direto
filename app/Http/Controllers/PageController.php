@@ -8,55 +8,36 @@ class PageController extends Controller
 {
     public function index()
     {
-        return view('layouts.welcome');
+        return view('home.index');
     }
 
     public function about()
     {
-        return view('layouts.about');
+        return view('about.index');
     }
-
-    public function courses()
-    {
-        return view('layouts.courses');
-    }
-
-    // Telas de video Temp
-
-    public function video1()
-    {
-        return view('layouts.video1');
-    }
-
-    public function video2()
-    {
-        return view('layouts.video2');
-    }
-
-    // 
 
     public function contact()
     {
-        return view('layouts.contact');
+        return view('contact.index');
     }
 
     public function community()
     {
-        return view('layouts.community');
+        return view('community.index');
     }
 
     public function blog()
     {
-        return view('layouts.blog');
+        return view('blog.index');
     }
 
     public function calendar()
     {
-        return view('layouts.calendar');
+        return view('calendar.index');
     }
 
     public function activities()
     {
-        return view('layouts.activities');
+        return view('activities.index');
     }
 }

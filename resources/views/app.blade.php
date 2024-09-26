@@ -18,12 +18,17 @@
             <h1>EstudoDireto</h1>
         </div>
 
+        <!-- Botão do menu hamburger para dispositivos móveis -->
+        <div class="nav-hamburger">
+            <i class='bx bx-menu'></i>
+        </div>
+
         <div class="nav-list-container nav-section">
             <ul class="nav-list">
                 @if(Auth::check())
                     <li class="nav-list-item"><a href="/">Início</a></li>
                     <li><a href="/community">Comunidade</a></li>
-                    <li><a href="/calendar">Caledário</a></li>
+                    <li><a href="/calendar">Calendário</a></li>
                     <li><a href="/blog">Blog</a></li>
                     <li><a href="/courses">Cursos</a></li>
                 @else
@@ -107,5 +112,15 @@
             <li><a href="#">Declaração de acessibilidade</a></li>
         </ul>
     </footer>
+
+    <script>
+        const hamburger = document.querySelector('.nav-hamburger');
+        const navList = document.querySelector('.nav-list-container');
+        
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
+

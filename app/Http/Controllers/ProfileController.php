@@ -11,12 +11,11 @@ class ProfileController extends Controller
 {
     public function profile()
     {
-        return view('layouts.user-profile'); // Certifique-se de que este é o caminho correto para sua view
+        return view('profile.index'); 
     }
 
     public function update(Request $request)
     {
-        // Validação dos dados do formulário
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -33,12 +32,10 @@ class ProfileController extends Controller
         }
 
         if ($request->hasFile('profile_image')) {
-            // Delete old image if exists
             if ($user->profile_image) {
                 Storage::disk('public')->delete($user->profile_image);
             }
 
-            // Store new image
             $path = $request->file('profile_image')->store('profile_images', 'public');
             $user->profile_image = $path;
         }

@@ -7,15 +7,14 @@
     align-items: center;
     justify-content: center;
     background-color: var(--main-color);
-    height: 400px; 
+    height: 400px;
     overflow: hidden;
     border: solid 1px var(--border-color);
-    border-radius: 16px; 
+    border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.banner 
-.content {
+.banner .content {
     color: var(--main-text-color);
     font-size: 1.8em;
     text-align: start;
@@ -46,6 +45,62 @@
     color: #6c63ff;
 }
 
+/* Responsividade */
+@media (max-width: 1200px) {
+    .banner {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .banner img {
+        display: none;
+    }
+
+    .banner .content {
+        text-align: center;
+        font-size: 1.6em;
+    }
+
+    .banner-btn {
+        width: 60%;
+        font-size: 0.9rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        padding: 30px 10px;
+    }
+
+    .banner .content {
+        font-size: 1.4em;
+    }
+
+    .banner-btn {
+        width: 70%;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 490px) {
+    .banner .content {
+        font-size: 1.2em;
+    }
+
+    .banner-btn {
+        width: 80%;
+        font-size: 0.8rem;
+    }
+
+    
+    h2 {
+        text-align: center;
+    }
+}
+
+
 .cursos-populares, 
 .depoimentos, 
 .newsletter {
@@ -54,6 +109,7 @@
 
 .cursos-lista {
     display: flex;
+    justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
     margin-top: 3rem;
@@ -66,6 +122,7 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 3rem;
     width: calc(50% - 1rem);
+    min-width: 270px;
     color: var(--main-text-color);
     transition: ease .1s;
     cursor: pointer;
