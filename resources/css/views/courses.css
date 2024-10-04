@@ -47,6 +47,11 @@
     transition: ease 0.1s;
 }
 
+.image-input-box label span {
+    margin: 0 10px;
+    font-weight: 500;
+}
+
 .select-input-box {
     display: flex;
     justify-content: space-between;
@@ -109,11 +114,15 @@
 }
 
 .course-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: var(--main-color);
     border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border: solid 1px var(--border-color);
     margin: 10px;
+    width: 320px;
 }
 
 .course-card h2 {
@@ -125,7 +134,7 @@
 .course-card img {
     display: block;
     width: 100%;
-    border: solid 1px var(--border-color);
+    border-bottom: solid 1px var(--border-color);
     border-radius: 16px 16px 0 0;
     min-height: 212px;
 }
@@ -150,4 +159,9 @@
     padding: 10px;
     border-radius: 0 0 16px 16px;
     text-align: center;
+    transition: ease .1s;
+}
+
+.view-course-btn:hover {
+   background-color: var(--main-text-color-hover); 
 }

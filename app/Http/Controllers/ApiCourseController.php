@@ -7,14 +7,12 @@ use Illuminate\Http\Request;
 
 class ApiCourseController extends Controller
 {
-    // Método para listar todos os cursos como JSON
     public function index()
     {
         $courses = Course::all();
-        return response()->json($courses); // Retorna a lista de cursos como JSON
+        return response()->json($courses); 
     }
 
-    // Método para exibir um curso específico como JSON
     public function show($id)
     {
         $course = Course::find($id);
@@ -43,10 +41,9 @@ class ApiCourseController extends Controller
 
         $course = Course::create($validatedData);
 
-        return response()->json($course, 201); // Código 201 indica que o curso foi criado
+        return response()->json($course, 201); 
     }
 
-    // Método para atualizar um curso existente
     public function update(Request $request, $id)
     {
         $course = Course::find($id);
@@ -72,7 +69,6 @@ class ApiCourseController extends Controller
         return response()->json($course);
     }
 
-    // Método para excluir um curso existente
     public function destroy($id)
     {
         $course = Course::find($id);

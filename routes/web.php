@@ -15,9 +15,9 @@ Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 Route::get('/calendar', [PageController::class, 'calendar'])->name('calendar')->middleware('auth');
 
 Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
-Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
+Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create')->middleware('auth');
 Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
-Route::get('/courses/{id}', [CourseController::class, 'show'])->name('courses.show');
+Route::get('/courses/{id}', [CourseController::class, 'show'])->name('courses.show')->middleware('auth');
 
 Route::get('/courses/video1', [PageController::class, 'video1'])->name('video1')->middleware('auth');
 Route::get('/courses/video2', [PageController::class, 'video2'])->name('video2')->middleware('auth');

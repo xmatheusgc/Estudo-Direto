@@ -45,8 +45,8 @@
         </div>
 
         <div class="image-input-box course-input-box">
-            <label for="course_image"><i class='bx bx-image-add'></i> Adicionar imagem </label>
-            <input type="file" name="course_image" id="course_image">
+            <label for="course_image"><i class='bx bx-image-add'></i><span id="file-name">Adicionar imagem</span></label>
+            <input type="file" name="course_image" id="course_image" onchange="displayFileName()">
         </div>
 
         <div class="select-input-box">
@@ -73,4 +73,19 @@
     </form>
 </main>
 
+<script>
+    function displayFileName() {
+        const fileInput = document.getElementById('course_image');
+        const fileNameDisplay = document.getElementById('file-name');
+        
+        if (fileInput.files.length > 0) {
+            const fileName = fileInput.files[0].name;
+            fileNameDisplay.textContent = fileName.length > 20 ? fileName.substring(0, 20) + '...' : fileName;
+        } else {
+            fileNameDisplay.textContent = ''; 
+        }
+    }
+</script>
+
 @endsection
+ 

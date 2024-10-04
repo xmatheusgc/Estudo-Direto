@@ -7,7 +7,7 @@
 @import './views/welcome.css';
 @import './views/user-profile.css';
 @import './views/auth.css';
-@import './views/timer.css';
+@import './components/timer.css';
 @import './views/video.css';
 
 * {
@@ -24,7 +24,7 @@
     --main-color: #FFF;
     --background-color: #f6faff;
     --main-text-color: #17235e;
-    --main-text-color-hover: #2a3e9b;
+    --main-text-color-hover: #1c2e7e;
     --secondary-text-color: #17235e;
     --border-color: #e7e7e7;
     --input-color: #e6e6e6; 
