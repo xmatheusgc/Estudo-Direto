@@ -4,7 +4,7 @@
 
 @section('content')
 
-<main id="course-screen">
+<main id="d-flex justify-content-start align-items-center p-3">
     <h2 class="course-screen-title">Lista de Cursos</h2>
     <div class="course-card-container">
         @foreach($courses as $course)

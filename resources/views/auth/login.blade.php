@@ -42,7 +42,7 @@
 
         <p class="register">
             Não possui uma conta?
-            <a href="/users/create-account">Criar</a>
+            <a href="/signup">Criar</a>
         </p>
     </form>
 </main>

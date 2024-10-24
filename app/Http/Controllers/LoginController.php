@@ -34,6 +34,6 @@ class LoginController extends Controller
         Auth::logout();
         $req->session()->invalidate();
         $req->session()->regenerateToken();
-        return redirect('/users/login');
+        return redirect('/signin');
     }
 }

@@ -22,6 +22,6 @@ class RegisterController extends Controller
         $user->password = Hash::make($req->password);
         $user->save();
 
-        return redirect('/users/login')->with('success', 'Cadastro realizado com sucesso!');
+        return redirect('/signin')->with('success', 'Cadastro realizado com sucesso!');
     }
 }
