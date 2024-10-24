@@ -1,0 +1,52 @@
+//Typography
+$font-family-sans-serif: "Montserrat", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+$display-font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 3rem,
+  6: 2.5rem
+);
+
+// Colors
+$bg-color: #f8f9fa; 
+$bg-card-color: #fff;           
+$text-primary: #212529;
+$text-secondary: #fff;
+$border-color: #dee2e6;                          
+$link-color: #007bff;          
+$link-hover: #0056b3; 
+$input-color: #fff;      
+$input-color-hover: #fff;  
+$button-bg: #007bff;           
+$button-text: #ffffff; 
+
+$success-color: #28a745;
+$error-color: #dc3545;
+$warning-color: #ffc107;
+
+
+// Colors Dark Mode
+.dark-mode {
+  $bg-color: #212529; 
+  $bg-card-color: #fff;          
+  $text-primary: #f8f9fa;
+  $text-secondary: #fff;   
+  $border-color: #444444;             
+  $link-color: #80bfff;      
+  $link-hover: #66a3ff;      
+  $button-bg: #0056b3;      
+  $button-text: #ffffff; 
+    
+  $success-color: #4caf50;
+  $error-color: #f44336;
+  $warning-color: #ff9800;
+}
+
+
+//Effects 
+$transition-duration: 0.3s;

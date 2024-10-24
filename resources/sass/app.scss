@@ -1,0 +1,32 @@
+@import 'variables';
+@import 'bootstrap/scss/bootstrap';
+@import 'components/navbar.scss';
+@import 'views/couses.scss';
+
+* {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+
+    list-style: none !important;
+    list-style-type: none !important;
+    text-decoration: none !important; 
+}
+
+body {
+    background-color: $bg-color;
+}
+
+main {
+    min-height: 100vh;
+    padding: 2.5rem !important;
+}
+
+a {
+    color: $text-primary;
+    font-weight: 500;
+}
+
+i {
+    font-size: 1.3rem;
+}
