@@ -5,16 +5,6 @@
 @section('content')
 
 <main id="create-course-screen">
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
     <form action="{{ route('courses.store') }}" method="POST" enctype="multipart/form-data" class="create-course-form">
         @csrf
 
@@ -71,6 +61,22 @@
 
         <button type="submit" class="submit-course-btn">Criar Curso</button>
     </form>
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 </main>
 
 <script>

@@ -1,4 +1,4 @@
-//Typography
+// Typography
 $font-family-sans-serif: "Montserrat", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
@@ -12,25 +12,25 @@ $display-font-sizes: (
   6: 2.5rem
 );
 
-// Colors
-$bg-color: #f8f9fa; 
+// Light Mode Colors
+$bg-color: #f6faff; 
 $bg-card-color: #fff;           
-$text-primary: #212529;
-$text-secondary: #fff;
-$border-color: #dee2e6;                          
+$text-primary: #101a47;
+$text-secondary: #ff0000;
+$border-color: #e7e7e7;                          
 $link-color: #007bff;          
 $link-hover: #0056b3; 
-$input-color: #fff;      
-$input-color-hover: #fff;  
-$button-bg: #007bff;           
-$button-text: #ffffff; 
+$input-color: #e6e6e6;      
+$input-color-hover: #cfcfcf;  
+$button-bg: #1c2e7e;           
+$button-text: #fff; 
 
 $success-color: #28a745;
 $error-color: #dc3545;
 $warning-color: #ffc107;
 
 
-// Colors Dark Mode
+// Dark Mode Colors
 .dark-mode {
   $bg-color: #212529; 
   $bg-card-color: #fff;          
@@ -48,5 +48,5 @@ $warning-color: #ffc107;
 }
 
 
-//Effects 
+// Effects 
 $transition-duration: 0.3s;

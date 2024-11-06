@@ -1,6 +1,9 @@
 @import 'variables';
 @import 'bootstrap/scss/bootstrap';
+
 @import 'components/navbar.scss';
+@import 'components/comments.scss';
+
 @import 'views/couses.scss';
 
 * {
@@ -17,9 +20,15 @@ body {
     background-color: $bg-color;
 }
 
+@keyframes content-fade {
+    from { opacity: 0%; }
+    to { opacity: 100%; }
+}
+
 main {
     min-height: 100vh;
     padding: 2.5rem !important;
+    animation: content-fade .5s ease;
 }
 
 a {

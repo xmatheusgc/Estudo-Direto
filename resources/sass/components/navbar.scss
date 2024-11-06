@@ -1,46 +1,56 @@
 nav {
-    background-color: $bg-card-color;
-    position: relative;
-  
-    .nav-logo {
-      a {
-        font-weight: 700;
-      }
-    }
-  
-    .nav-list-item {
-      margin: 1rem !important;
-    }
-  
-    .menu-icon {
-      font-size: 24px;
-      cursor: pointer;
-    }
-  
-    .drop-menu  {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 100%; 
-      right: 0;
-      width: fit-content;
-      background-color: white;
-    }
+  background-color: $bg-card-color;
+  position: relative;
 
-    #menu-toggle:checked ~ .drop-menu  {
-        display: flex;
+  .nav-logo {
+    a {
+      font-weight: 700;
+      flex: 2;
     }
-
-    .drop-list-item {
-        padding: 1rem;
-    }
+  }
   
-    .nav-list-item:hover {
-      background-color: #f5f5f5;
-    }
-  
-}
+  .nav-menu {
+    flex: 2;
+  } 
 
-.sing-cont {
-    background-color: black;
+  .nav-utils {
+    flex: 0.3;
+  }
+
+  .nav-list-item {
+    margin: 1rem !important;
+  }
+
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .drop-menu  {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; 
+    right: 0;
+    width: fit-content;
+    background-color: white;
+  }
+
+  #menu-toggle:checked ~ .drop-menu  {
+    display: flex;
+  }
+
+  .drop-list-item {
+     padding: 1rem;
+  }
+  
+  .nav-list-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .profile-icon {
+    max-width: 35px;
+    border-radius: 99px;
+    cursor: pointer;
+  }
 }

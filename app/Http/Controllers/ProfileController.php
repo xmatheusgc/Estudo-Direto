@@ -14,9 +14,9 @@ class ProfileController extends Controller
         return view('profile.index'); 
     }
 
-    public function update(Request $request)
+    public function update(Request $req)
     {
-        $request->validate([
+        $req->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'password' => 'nullable|string|min:8|confirmed',
@@ -24,19 +24,19 @@ class ProfileController extends Controller
         ]);
 
         $user = Auth::user();
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
+        $user->name = $req->input('name');
+        $user->email = $req->input('email');
 
-        if ($request->filled('password')) {
-            $user->password = Hash::make($request->input('password'));
+        if ($req->filled('password')) {
+            $user->password = Hash::make($req->input('password'));
         }
 
-        if ($request->hasFile('profile_image')) {
+        if ($req->hasFile('profile_image')) {
             if ($user->profile_image) {
                 Storage::disk('public')->delete($user->profile_image);
             }
 
-            $path = $request->file('profile_image')->store('profile_images', 'public');
+            $path = $req->file('profile_image')->store('profile_images', 'public');
             $user->profile_image = $path;
         }
 

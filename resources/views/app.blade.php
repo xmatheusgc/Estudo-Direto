@@ -16,11 +16,8 @@
 </head>
 
 <body>
-  <nav class="d-flex align-items-center justify-content-between px-4 py-3 shadow-sm border-bottom bg-light">
-    <h1 class="nav-logo"><a href="/" class="text-decoration-none">Estudo Direto</a></h1>
-
-    <input type="checkbox" id="menu-toggle" class="menu-toggle d-none">
-    <label for="menu-toggle" class="menu-icon d-md-none"><i class="bx bx-menu"></i></label>
+  <nav class="d-flex align-items-center justify-content-between p-4 shadow-sm border-bottom bg-light lh-1">
+    <h1 class="nav-logo"><a href="/" class="text-decoration-none">EstudoDireto</a></h1>
 
     <div class="drop-menu d-md-none border shadow-sm">
       <ul class="p-0 m-0">
@@ -29,12 +26,11 @@
         <li class="drop-list-item px-3 py-2"><a href="/blog">Blog</a></li>
         <li class="drop-list-item px-3 py-2"><a href="/about">Sobre</a></li>
         <li class="drop-list-item px-3 py-2"><a href="/contact">Contato</a></li>
-
         <li class="border-top px-3 py-2"><a href="/signin" class="d-flex align-items-center"><i class='bx bx-user-circle'></i>Fazer Login</a></li>
       </ul>
     </div>
 
-    <ul class="d-none d-md-flex p-0 m-0 nav-menu">
+    <ul class="d-none d-md-flex justify-content-center p-0 m-0 nav-menu">
       <li class="nav-list-item"><a href="/">Início</a></li>
       <li class="nav-list-item"><a href="/courses">Cursos</a></li>
       <li class="nav-list-item"><a href="/blog">Blog</a></li>
@@ -42,14 +38,29 @@
       <li class="nav-list-item"><a href="/contact">Contato</a></li>
     </ul>
 
-    <ul class="d-none d-md-flex p-0 m-0">
-      <li class="nav-list-item"><a href="/signin" class="d-flex align-items-center gap-1"><i class='bx bx-user-circle'></i>Fazer Login</a></li>
+    <ul class="d-flex align-items-center justify-content-end gap-1 p-0 m-0 nav-utils">
+      @if(Auth::check())
+        <li>
+          <a id="account-img" href="/users/profile">
+            @if(Auth::user()->profile_image)
+              <img src="{{ asset('storage/' . Auth::user()->profile_image) }}" alt="Foto de Perfil" class="profile-icon">
+            @else
+              <i class='bx bx-user-circle account-icon'></i>
+            @endif
+          </a>
+        </li>
+      @else
+        <a href="/signin" class="d-flex align-items-center gap-1"><i class='bx bx-user-circle'></i>Fazer Login</a></li>
+      @endif
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle d-none">
+      <label for="menu-toggle" class="menu-icon d-md-none"><i class='bx bx-menu'></i></label>
     </ul>
-</nav>
+  </nav>
 
   @yield('content')
 
   @livewireScripts
   @vite(['resources/js/app.js'])  
 </body>
-</html>
+</html> 

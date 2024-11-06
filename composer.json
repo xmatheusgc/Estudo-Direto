@@ -8,7 +8,6 @@
         "php": "^8.2",
         "google/apiclient": "^2.18",
         "laravel/framework": "^11.0",
-        "laravel/passport": "*",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.5",
         "livewire/livewire": "^3.5"

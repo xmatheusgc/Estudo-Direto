@@ -16,11 +16,26 @@ class RegisterController extends Controller
 
     public function store(Request $req)
     {
-        $user = new User();
-        $user->name = $req->username;
-        $user->email = $req->email;
-        $user->password = Hash::make($req->password);
-        $user->save();
+        $validatedData = $req->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => [
+                'required',
+                'string',
+                'min:12', 
+                'regex:/[a-z]/', 
+                'regex:/[A-Z]/', 
+                'regex:/[0-9]/',
+                'regex:/[@$!%*?&]/', 
+                'confirmed', 
+            ],
+        ]);
+
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => bcrypt($validatedData['password']), 
+        ]);
 
         return redirect('/signin')->with('success', 'Cadastro realizado com sucesso!');
     }
