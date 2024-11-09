@@ -4,7 +4,7 @@
 
 @section('content')
 
-<main id="community-screen">
+<main>
     <section class="friends-scroll-bar">
         <div class="friends" id="btn-friend"><i class='bx bx-user'></i></div>
         <div class="friends" id="btn-add-friend"><i class='bx bx-plus'></i></div>

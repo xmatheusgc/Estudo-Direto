@@ -4,7 +4,7 @@
 
 @section('content')
 
-<main id="create-course-screen">
+<main>
     <form action="{{ route('courses.store') }}" method="POST" enctype="multipart/form-data" class="create-course-form">
         @csrf
 

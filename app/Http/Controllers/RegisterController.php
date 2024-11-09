@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -18,6 +17,7 @@ class RegisterController extends Controller
     {
         $validatedData = $req->validate([
             'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users', 
             'email' => 'required|string|email|max:255|unique:users',
             'password' => [
                 'required',
@@ -33,6 +33,7 @@ class RegisterController extends Controller
 
         $user = User::create([
             'name' => $validatedData['name'],
+            'username' => $validatedData['username'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']), 
         ]);

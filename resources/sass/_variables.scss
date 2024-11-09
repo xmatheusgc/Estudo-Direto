@@ -3,48 +3,40 @@ $font-family-sans-serif: "Montserrat", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
-$display-font-sizes: (
-  1: 5rem,
-  2: 4.5rem,
-  3: 4rem,
-  4: 3.5rem,
-  5: 3rem,
-  6: 2.5rem
-);
-
 // Light Mode Colors
 $bg-color: #f6faff; 
-$bg-card-color: #fff;           
-$text-primary: #101a47;
-$text-secondary: #ff0000;
-$border-color: #e7e7e7;                          
-$link-color: #007bff;          
-$link-hover: #0056b3; 
-$input-color: #e6e6e6;      
-$input-color-hover: #cfcfcf;  
-$button-bg: #1c2e7e;           
+$bg-card-color: #fff;          
+$text-primary: #101a50;
+$text-secondary: #17235e;   
+$border-color: #e7e7e7;             
+$link-color: #80bfff;      
+$link-hover: #66a3ff;
+$input-color: #5c5c5c;      
+$input-color-hover: #cfcfcf;        
+$button-bg: #17235e;      
 $button-text: #fff; 
-
-$success-color: #28a745;
-$error-color: #dc3545;
-$warning-color: #ffc107;
-
+  
+$success-color: #4caf50;
+$error-color: #f44336;
+$warning-color: #ff9800;
 
 // Dark Mode Colors
 .dark-mode {
-  $bg-color: #212529; 
-  $bg-card-color: #fff;          
-  $text-primary: #f8f9fa;
-  $text-secondary: #fff;   
-  $border-color: #444444;             
-  $link-color: #80bfff;      
-  $link-hover: #66a3ff;      
-  $button-bg: #0056b3;      
-  $button-text: #ffffff; 
-    
-  $success-color: #4caf50;
-  $error-color: #f44336;
-  $warning-color: #ff9800;
+  $bg-color: #121212; 
+  $bg-card-color: #202020;           
+  $text-primary: #e2e2e2;
+  $text-secondary: #9c58f0;
+  $border-color: #303030;                          
+  $link-color: #007bff;          
+  $link-hover: #0056b3; 
+  $input-color: #333333;      
+  $input-color-hover: #444444;  
+  $button-bg: #9c58f0;           
+  $button-text: #fff; 
+  
+  $success-color: #28a745;
+  $error-color: #dc3545;
+  $warning-color: #ffc107;
 }
 
 

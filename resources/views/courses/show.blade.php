@@ -3,7 +3,7 @@
 @section('title', $course->title)
 
 @section('content')
-<main id="course-details">
+<main>
     <h1>{{ $course->title }}</h1>
     
     <p><strong>Descrição:</strong> {{ $course->description }}</p>

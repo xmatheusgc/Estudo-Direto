@@ -1,0 +1,85 @@
+.main-blog {
+    height: fit-content;
+    overflow: hidden;
+}
+
+.posts-section {
+    position: relative;
+    background: $bg-card-color;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow: auto; 
+
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+
+    scrollbar-width: none; 
+}
+
+.post-image-container {
+    display: block;
+    width: 100%; 
+    text-align: center;
+}
+  
+.post-image {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+}
+  
+.options-section {
+    background: $bg-card-color;
+    max-width: 300px;
+}
+
+@media (max-width: 575.98px) {
+    .options-section {
+        position: sticky;
+        bottom: 0;
+        background: $bg-card-color;
+        width: 100%;
+        height: 3rem;
+        max-width: none;
+    }
+
+    .new-post-button {
+        border-radius: 10px;
+        padding: .5rem;
+    }
+
+    .post-image img {
+        max-width: 300px;
+    }
+}
+
+.add-post-form {
+    background: $bg-card-color;
+    border-radius: 10px;
+}
+
+.form-control {
+    color: $text-primary;
+}
+
+.new-post-button {
+    background: $button-bg;
+    border-radius: 10px;
+    color: $button-text;
+    text-align: center;
+    padding: .7rem;
+    width: 100%;
+    font-weight: 600;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+

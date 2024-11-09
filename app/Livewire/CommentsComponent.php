@@ -18,17 +18,15 @@ class CommentsComponent extends Component
     {
         $this->comments = Comment::all();
 
-        // Verifique se o usuário está autenticado e defina o nome
         if (Auth::check()) {
-            $this->user_name = Auth::user()->name; // Ajuste aqui conforme o nome do campo no seu model User
+            $this->user_name = Auth::user()->name; 
         } else {
-            $this->user_name = ''; // Se não estiver autenticado, você pode deixar vazio ou redirecionar
+            $this->user_name = ''; 
         }
     }
 
     public function addComment()
     {
-        // Verifique se o usuário está autenticado
         if (!Auth::check()) {
             return redirect()->route('login');
         }
@@ -42,11 +40,11 @@ class CommentsComponent extends Component
             'comment' => $this->comment,
             'rating' => $this->rating,
             'user_id' => Auth::id(),
-            'user_name' => Auth::user()->name, // Adiciona o nome do usuário
+            'user_name' => Auth::user()->name, 
         ]);        
     
         $this->resetFields();
-        $this->comments = Comment::with('user')->get(); // Certifique-se de que os comentários estão sendo carregados corretamente
+        $this->comments = Comment::with('user')->get(); 
     }    
 
     public function editComment($id)

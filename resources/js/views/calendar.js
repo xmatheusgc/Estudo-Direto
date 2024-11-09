@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let date = new Date();
     let currentMonth = date.getMonth();
     let currentYear = date.getFullYear();
-    let events = {}; // Object to hold events
+    let events = {}; 
 
     function renderCalendar(month, year) {
         if (monthYear) {

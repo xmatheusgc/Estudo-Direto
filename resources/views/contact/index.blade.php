@@ -4,7 +4,7 @@
 
 @section('content')
 
-<main id="contact-main">
+<main>
     <div class="contact-form">
         <h2>Contato</h2>
         <form action="" method="POST">

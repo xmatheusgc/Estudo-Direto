@@ -4,7 +4,7 @@
 
 @section('content')
 
-<main class="calendar-main">
+<main>
     <div class="calendar-container">
         <div class="calendar-header">
             <button id="prev-month">&lt;</button>
