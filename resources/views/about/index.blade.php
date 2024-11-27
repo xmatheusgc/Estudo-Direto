@@ -4,8 +4,8 @@
 
 @section('content')
 
-<main>
-    <div class="about-section">
+<main> 
+    <div class="about-section border p-3">
         <h2>Sobre Nós</h2>
         <p>Bem-vindo ao Estudo Direto, sua plataforma de aprendizagem online dedicada a fornecer recursos educacionais de qualidade e acessíveis para estudantes de todas as idades e níveis. Nossa missão é facilitar o acesso ao conhecimento e proporcionar uma experiência de aprendizado eficaz e direta.</p>
         

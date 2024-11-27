@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class TempController extends Controller
 {
     public function home()
     {
@@ -39,5 +39,10 @@ class PageController extends Controller
     public function activities()
     {
         return view('activities.index');
+    }
+
+    public function profile()
+    {
+        return view('profile.index');
     }
 }

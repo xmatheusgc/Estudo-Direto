@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CourseController;
+use App\Http\Controllers\Course\CourseController;
 
-// Páginas de cursos
 Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
 
 Route::middleware(['auth'])->group(function () {
@@ -12,7 +11,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/courses/{id}', [CourseController::class, 'show'])->name('courses.show'); 
 });
 
-// API de cursos
 Route::prefix('api/courses')->group(function () {
     Route::get('/', [CourseController::class, 'index'])->name('api.courses.index');      
     Route::get('/{id}', [CourseController::class, 'show'])->name('api.courses.show');     

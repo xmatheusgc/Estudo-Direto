@@ -5,7 +5,7 @@
 @section('content')
 
 <main>
-    <form action="/users/store" method="POST" class="register-form">
+    <form action="{{ route('auth.register.submit') }}" method="POST" class="register-form">
         @csrf
         <h1 class="register-title">Registrar</h1>
 
@@ -42,7 +42,7 @@
 
         <p class="login">
             Já possui uma conta?
-            <a href="/signin">Entrar</a>
+            <a href="{{ route('auth.login') }}">Entrar</a>
         </p>
     </form>
 </main>

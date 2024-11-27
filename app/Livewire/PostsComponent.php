@@ -13,14 +13,12 @@ class PostsComponent extends Component
 
     public $text;
     public $image;
-    public $isFormVisible = false;  
+    public $postIdBeingEdited = null;
 
     protected $rules = [
         'text' => 'required|string|max:255',
-        'image' => 'nullable|image|max:2048', 
+        'image' => 'nullable|image|max:2048',
     ];
-
-    protected $listeners = ['postAdded' => '$refresh'];
 
     public function render()
     {
@@ -28,42 +26,80 @@ class PostsComponent extends Component
         return view('livewire.posts-component', compact('posts'));
     }
 
+    public function showNewPostModal()
+    {
+        $this->resetForm(); 
+    }
+
     public function addPost()
     {
-
-        $userId = Auth::id();
-        if (is_null($userId)) {
-            session()->flash('error', 'Usuário não autenticado');
-            return;
-        }
-
         $this->validate();
 
         $imagePath = $this->image ? $this->image->store('post_images', 'public') : null;
 
-        // Criação do post
         Post::create([
             'text' => $this->text,
             'post_image' => $imagePath,
-            'author_id' => $userId, 
+            'author_id' => Auth::id(),
         ]);
 
-        $this->dispatch('postAdded'); 
-
         session()->flash('message', 'Post criado com sucesso!');
-
-        $this->isFormVisible = false;
-
-        $this->reset(['text', 'image']);
+        $this->resetForm(); 
     }
 
-    public function toggleForm()
+    public function editPost($id)
     {
-        $this->isFormVisible = !$this->isFormVisible;
+        $this->resetForm(); 
+
+        $post = Post::find($id);
+
+        if ($post && $post->author_id === Auth::id()) {
+            $this->postIdBeingEdited = $id;
+            $this->text = $post->text;
+            $this->image = $post->post_image;
+        } else {
+            session()->flash('error', 'Ação não permitida.');
+        }
     }
 
-    public function closeForm()
+    public function updatePost()
     {
-        $this->isFormVisible = false;
+        $this->validate();
+
+        $post = Post::find($this->postIdBeingEdited);
+
+        if ($post && $post->author_id === Auth::id()) {
+            $imagePath = $this->image instanceof \Livewire\TemporaryUploadedFile
+                ? $this->image->store('post_images', 'public')
+                : $post->post_image;
+
+            $post->update([
+                'text' => $this->text,
+                'post_image' => $imagePath,
+            ]);
+
+            session()->flash('message', 'Post atualizado com sucesso!');
+            $this->resetForm(); 
+        } else {
+            session()->flash('error', 'Ação não permitida.');
+        }
+    }
+
+    public function deletePost($id)
+    {
+        $post = Post::find($id);
+
+        if ($post && $post->author_id === Auth::id()) {
+            $post->delete();
+            session()->flash('message', 'Post deletado com sucesso!');
+        } else {
+            session()->flash('error', 'Ação não permitida.');
+        }
+    }
+
+    public function resetForm()
+    {
+        $this->reset(['text', 'image', 'postIdBeingEdited']);
+        $this->resetErrorBag(); 
     }
 }

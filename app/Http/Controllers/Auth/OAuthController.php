@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Exception;
 
-class AuthController extends Controller
+class OAuthController extends Controller
 {
     public function redirectToGoogle()
     {
@@ -20,24 +21,20 @@ class AuthController extends Controller
         try {
             $googleUser = Socialite::driver('google')->stateless()->user();
     
-            // Gerar um 'username' único se o campo estiver vazio
             $username = $googleUser->getName() ? Str::slug($googleUser->getName()) . rand(1000, 9999) : 'user' . rand(1000, 9999);
     
-            // Cria ou encontra o usuário com base no e-mail
             $user = User::firstOrCreate(
                 ['email' => $googleUser->getEmail()],
                 [
                     'name' => $googleUser->getName(),
                     'password' => bcrypt(Str::random(24)),
                     'avatar' => $googleUser->getAvatar(),
-                    'username' => $username, // Atribui o 'username' gerado
+                    'username' => $username,
                 ]
             );
     
-            // Loga o usuário
             Auth::login($user);
     
-            // Redireciona para a página de sucesso
             return view('auth.success');
         } catch (\Exception $e) {
             \Log::error('Google Login Error: ' . $e->getMessage(), [

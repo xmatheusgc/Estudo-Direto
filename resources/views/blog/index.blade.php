@@ -8,4 +8,6 @@
     <livewire:posts-component />
 </main>
 
+
+
 @endsection

@@ -95,6 +95,11 @@ class CommentsComponent extends Component
         $this->commentIdBeingEdited = null;
     }
 
+    public function cancelEdit()
+    {
+        $this->resetFields();
+    }
+
     public function render()
     {
         $this->comments = Comment::with('user')->get(); 
@@ -102,5 +107,4 @@ class CommentsComponent extends Component
             'comments' => $this->comments,
         ]);
     }
-    
 }

@@ -12,7 +12,7 @@
         </div>
     @endif  
 
-    <form action="/auth" method="POST" class="login-form">
+    <form action="{{ route('auth.login.submit') }}" method="POST" class="login-form">
         @csrf
     
         <h1 class="login-title">Entrar</h1>
@@ -46,7 +46,7 @@
     
         <p class="register">
             Não possui uma conta?
-            <a href="/signup">Criar</a>
+            <a href="{{ route('auth.register') }}">Criar</a>
         </p>
     </form>
     

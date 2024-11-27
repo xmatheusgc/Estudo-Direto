@@ -1,25 +1,30 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\OAuthController;
+use App\Http\Controllers\Auth\AuthController;
 
 Route::middleware('guest')->group(function () {
-    Route::get('/signin', [LoginController::class, 'login'])->name('login');
-    Route::post('/auth', [LoginController::class, 'auth']);
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');
+    Route::post('/login', [AuthController::class, 'login'])->name('auth.login.submit');
 
-    Route::get('/signup', [RegisterController::class, 'create'])->name('register.create');
-    Route::post('/users/store', [RegisterController::class, 'store'])->name('register.store');
+    Route::get('/register', [AuthController::class, 'showRegister'])->name('auth.register');
+    Route::post('/register', [AuthController::class, 'register'])->name('auth.register.submit');
 });
 
-Route::get('login/google', [AuthController::class, 'redirectToGoogle'])->name('login.google');
-Route::get('login/google/callback', [AuthController::class, 'handleGoogleCallback']);
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+});
 
-Route::get('login/facebook', [AuthController::class, 'redirectToFacebook'])->name('login.facebook');
-Route::get('login/facebook/callback', [AuthController::class, 'handleFacebookCallback']);
+Route::prefix('login')->name('login.')->group(function () {
+    Route::get('google', [OAuthController::class, 'redirectToGoogle'])->name('google');
+    Route::get('google/callback', [OAuthController::class, 'handleGoogleCallback']);
 
-Route::get('login/github', [AuthController::class, 'redirectToGithub'])->name('login.github');
-Route::get('login/github/callback', [AuthController::class, 'handleGithubCallback']);
+    Route::get('facebook', [OAuthController::class, 'redirectToFacebook'])->name('facebook');
+    Route::get('facebook/callback', [OAuthController::class, 'handleFacebookCallback']);
 
-Route::get('/auth/success', [AuthController::class, 'success'])->name('auth.success');
+    Route::get('github', [OAuthController::class, 'redirectToGithub'])->name('github');
+    Route::get('github/callback', [OAuthController::class, 'handleGithubCallback']);
+});
+
+Route::get('/auth/success', [OAuthController::class, 'success'])->name('auth.success');

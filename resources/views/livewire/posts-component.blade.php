@@ -1,25 +1,16 @@
 <section class="d-flex justify-content-center flex-column flex-sm-row gap-1 w-100">
-    <div wire:click="closeForm" class="overlay z-2" 
-        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: {{ $isFormVisible ? 'block' : 'none' }};">
-    </div>
-
-    <form wire:submit.prevent="addPost" class="add-post-form p-3 z-3" 
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: {{ $isFormVisible ? 'block' : 'none' }};">
-
-        <input type="text" wire:model="text" placeholder="Escreva seu post..." required class="form-control mb-2">
-        <input type="file" wire:model="image" class="form-control mb-2">
-        <button type="submit" class="new-post-button">Postar</button>
-    </form>
-
     <div class="d-flex flex-column options-section border w-100 d-none d-sm-block">
         @if(Auth::check())  
             <div class="d-flex justify-content-center border-bottom p-3 w-100">
-                <button class="new-post-button border" wire:click="toggleForm">Postar</i></button>
+                <button type="button" class="btn btn-primary w-100" wire:click="showNewPostModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Novo Post
+                </button>
             </div>
         @else
             <div class="p-3 mb-3">
                 <p class="alert alert-warning" role="alert">
-                    Para começar a compartilhar e interagir com os posts, faça <a href="/signin" class="alert-link">login</a>!
+                    Para começar a compartilhar e interagir com os posts, faça 
+                    <a href="{{ route('auth.login') }}" class="alert-link">login</a>!
                 </p>
             </div>    
         @endif
@@ -27,13 +18,18 @@
 
     <div class="posts-section border h-100">
         @if (session()->has('message'))
-            <div class="alert alert-success">
+            <div class="alert alert-success m-3">
                 {{ session('message') }}
             </div>
         @endif
-    
+
+        @if($posts->isEmpty()) 
+            <div class="alert alert-info text-center m-3">
+                Parece que ainda não há nenhum post! Seja o primeiro a compartilhar algo com a gente.
+            </div>
+        @else
         @foreach($posts as $post)
-            <div class="post-card d-flex flex-column flex-sm-row align-items-start border mb-3 m-3 rounded">
+            <div class="post-card d-flex flex-column flex-sm-row align-items-start border mb-3 m-3 rounded position-relative">
                 <div class="post-content d-flex flex-wrap flex-column flex-sm-row w-100">
                     <span class="author-container d-flex gap-1 w-100 p-3">
                         @if($post->user && $post->user->avatar)
@@ -47,15 +43,15 @@
                         </div>
                     </span>
                     <span class="post-text w-100 border-bottom px-4">
-                        <p class="">{{ $post->text }}</p>
+                        <p>{{ $post->text }}</p>
                     </span>
-
+        
                     @if($post->post_image) 
-                        <span class="post-image-container w-100 text-center p-2">
-                            <img class="post-image img-fluid rounded" src="{{ asset('storage/' . $post->post_image) }}" alt="post image">
+                        <span class="post-image-container w-100 text-center">
+                            <img class="post-image img-fluid" src="{{ asset('storage/' . $post->post_image) }}" alt="post image">
                         </span>                    
                     @endif
-
+        
                     <span class="post-tools w-100 border-top">
                         <ul class="d-flex justify-content-center align-items-center w-100 p-1 m-0">
                             <li class="d-flex align-items-center mx-2"><i class='bx bx-heart'></i></li>
@@ -64,15 +60,59 @@
                         </ul>
                     </span>
                 </div>
+        
+                <div class="dropdown position-absolute" style="top: 10px; right: 10px;">
+                    <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class='bx bx-dots-horizontal-rounded'></i>
+                    </a>
+        
+                    <ul class="dropdown-menu position-absolute drop-shape" aria-labelledby="dropdownMenuLink">
+                        @if(Auth::check() && $post->author_id === Auth::id())  
+                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" wire:click="editPost({{ $post->id }})"><i class='bx bx-edit'></i> Editar</a></li>
+                            <li><a class="dropdown-item text-danger" wire:click="deletePost({{ $post->id }})"><i class='bx bx-trash'></i> Excluir</a></li>
+                        @endif
+                        <li><a class="dropdown-item" href="#"><i class='bx bx-flag'></i> Denunciar</a></li>
+                    </ul>
+                </div>
             </div>
         @endforeach
-
-        <div class="options-section border-top w-100 d-block d-sm-none">
-            @if(Auth::check())
-                <div class="d-flex justify-content-center p-1 w-100">
-                    <button class="new-post-button border d-flex align-items-center" wire:click="toggleForm"><i class='bx bx-plus' ></i></button>
-                </div>
-            @endif
-        </div>
+        @endif
     </div>    
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" wire:ignore.self>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        {{ $postIdBeingEdited ? 'Editar Postagem' : 'Nova Postagem' }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" wire:click="resetForm" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form wire:submit.prevent="{{ $postIdBeingEdited ? 'updatePost' : 'addPost' }}">
+                        <div class="mb-3">
+                            <label for="post-text" class="form-label">Mensagem:</label>
+                            <textarea wire:model.defer="text" class="form-control" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="post-image" class="form-label">Imagem:</label>
+                            <input type="file" wire:model.defer="image" class="form-control">
+                            <div wire:loading wire:target="image" class="text-muted">Carregando imagem...</div>
+                        </div>
+
+                        @if($postIdBeingEdited && $image)
+                            <div class="mb-3">
+                                <img src="{{ is_string($image) ? asset('storage/' . $image) : $image->temporaryUrl() }}" alt="Imagem do post" class="img-fluid">
+                            </div>
+                        @endif
+
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                            {{ $postIdBeingEdited ? 'Atualizar' : 'Postar' }}
+                        </button>                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

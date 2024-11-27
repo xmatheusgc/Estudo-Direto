@@ -3,42 +3,5 @@ $font-family-sans-serif: "Montserrat", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
-// Light Mode Colors
-$bg-color: #f6faff; 
-$bg-card-color: #fff;          
-$text-primary: #101a50;
-$text-secondary: #17235e;   
-$border-color: #e7e7e7;             
-$link-color: #80bfff;      
-$link-hover: #66a3ff;
-$input-color: #5c5c5c;      
-$input-color-hover: #cfcfcf;        
-$button-bg: #17235e;      
-$button-text: #fff; 
-  
-$success-color: #4caf50;
-$error-color: #f44336;
-$warning-color: #ff9800;
-
-// Dark Mode Colors
-.dark-mode {
-  $bg-color: #121212; 
-  $bg-card-color: #202020;           
-  $text-primary: #e2e2e2;
-  $text-secondary: #9c58f0;
-  $border-color: #303030;                          
-  $link-color: #007bff;          
-  $link-hover: #0056b3; 
-  $input-color: #333333;      
-  $input-color-hover: #444444;  
-  $button-bg: #9c58f0;           
-  $button-text: #fff; 
-  
-  $success-color: #28a745;
-  $error-color: #dc3545;
-  $warning-color: #ffc107;
-}
-
-
 // Effects 
 $transition-duration: 0.3s;

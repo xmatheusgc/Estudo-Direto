@@ -1,0 +1,85 @@
+[data-bs-theme="light"] {
+    --bs-body-bg: #f6faff;
+    --bs-secondary-bg: #FFF;
+
+    --bs-border-color: #e7e7e7;
+    --bs-link-color: #17235e;
+    --bs-link-hover-color: #1c2e7e;
+    --bs-placeholder-color: #9ca3af;
+
+    --bs-heading-color: #17235e;
+    --bs-subtitle-color: #2f529d;
+
+    .btn-primary {
+        --bs-btn-color: #fff;
+        --bs-btn-bg: #17235e;
+        --bs-btn-border-color: #17235e;
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: #1c2e7e;
+        --bs-btn-hover-border-color: #1c2e7e;
+        --bs-btn-focus-shadow-rgb: 28, 46, 126;
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: #101b5e;
+        --bs-btn-active-border-color: #101b5e;
+        --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        --bs-btn-disabled-color: #fff;
+        --bs-btn-disabled-bg: #17235e;
+        --bs-btn-disabled-border-color: #17235e;
+    }    
+
+    .dropdown-menu {
+        --bs-dropdown-bg: #fff;
+        --bs-dropdown-link-active-bg: #cfcfcf;
+    }
+
+    input, textarea {
+        --bs-input-bg: #f6faff;
+        --bs-input-border-color: #e7e7e7;
+        --bs-input-focus-bg: #ffffff;
+        --bs-input-focus-border-color: #17235e;
+        --bs-input-placeholder-color: #9ca3af;
+    }
+}
+
+[data-bs-theme="dark"] {
+    --bs-body-bg: #08090A;
+    --bs-secondary-bg: #1D1D1E;
+
+    --bs-border-color: #303030;
+    --bs-link-color: #c6c6c6;
+    --bs-link-hover-color: #e05656;
+    --bs-placeholder-color: #6c757d;
+
+    --bs-heading-color: #e2e2e2;
+    --bs-subtitle-color: #bb86fc;
+
+    .btn-primary {
+        --bs-btn-color: #fff;
+        --bs-btn-bg: #0d6efd;
+        --bs-btn-border-color: #0d6efd;
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: rgb(11.05, 93.5, 215.05);
+        --bs-btn-hover-border-color: rgb(10.4, 88, 202.4);
+        --bs-btn-focus-shadow-rgb: 49, 132, 253;
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: rgb(10.4, 88, 202.4);
+        --bs-btn-active-border-color: rgb(9.75, 82.5, 189.75);
+        --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        --bs-btn-disabled-color: #fff;
+        --bs-btn-disabled-bg: #0d6efd;
+        --bs-btn-disabled-border-color: #0d6efd;
+    }
+
+    .dropdown-menu {
+        --bs-dropdown-bg: #202020;
+        --bs-dropdown-link-active-bg: #444444;
+    }
+
+    input, textarea {
+        --bs-input-bg: #202020;
+        --bs-input-border-color: #303030;
+        --bs-input-focus-bg: #333333;
+        --bs-input-focus-border-color: #bb86fc;
+        --bs-input-placeholder-color: #6c757d;
+    }
+}
