@@ -17,15 +17,11 @@ class CreatePostsTable extends Migration
             $table->id();  
             $table->text('text');  
             $table->string('post_image')->nullable(); 
-            $table->unsignedBigInteger('author_id');  
+            $table->foreignId('author_id')->constrained('users')->onDelete('cascade');  
             $table->timestamps(); 
-    
-            $table->foreign('author_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
         });
     }
+    
 
     /**
      * Reverse the migrations.

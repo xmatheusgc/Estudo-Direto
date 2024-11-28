@@ -4,9 +4,9 @@
 
 @section('content')
 
-<main> 
-    <div class="about-section border p-3">
-        <h2>Sobre Nós</h2>
+<main class="d-flex justify-content-center "> 
+    <div class="about-section border p-4 shadow-sm card-shape">
+        <h2 class="font-weight-bold my-3">Sobre Nós</h2>
         <p>Bem-vindo ao Estudo Direto, sua plataforma de aprendizagem online dedicada a fornecer recursos educacionais de qualidade e acessíveis para estudantes de todas as idades e níveis. Nossa missão é facilitar o acesso ao conhecimento e proporcionar uma experiência de aprendizado eficaz e direta.</p>
         
         <p>No Estudo Direto, acreditamos que a educação é a chave para o sucesso pessoal e profissional. Por isso, trabalhamos arduamente para oferecer conteúdos abrangentes e atualizados, que cobrem uma vasta gama de disciplinas, desde ciências exatas até ciências humanas e linguagens.</p>

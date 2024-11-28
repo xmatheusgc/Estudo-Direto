@@ -7,6 +7,9 @@
 @import 'views/blog.scss';
 @import 'views/about.scss';
 @import 'views/home.scss';
+@import 'views/profile.scss';
+@import 'views/courses.scss';
+@import 'views/auth.scss';
 
 * {
   padding: 0;
@@ -27,6 +30,7 @@ body {
 }
 
 main {
+  animation: content-fade;
   min-height: 90vh;
   padding: 2rem;
 }
@@ -38,6 +42,21 @@ a {
 
 i {
   font-size: 1.3rem;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+.card-shape {
+  background: var(--bs-secondary-bg);
+  width: 30%;
+  height: fit-content;
+}
+
+.user-profile {
+  max-height: 1.5rem;
+  max-width: 1.5rem;
 }
 
 .star-filled {

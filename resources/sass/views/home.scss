@@ -1,29 +1,29 @@
-.comments-section {
-    max-width: 400px;
-}
-
-.comment {
+.home-course-card {
+    overflow: hidden;
+    border-radius: 16px;
+    width: 20rem;
     background: var(--bs-secondary-bg);
-}
 
-.comment-date {
-    font-size: .8rem;
-}
-
-.comment-form {
-    background: var(--bs-secondary-bg);
-}
-
-.comments-scroll {
-    border: solid 1px var(--bs-border-color);
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
-    overflow: auto;
-    max-height: 50vh;
-
-    &::-webkit-scrollbar {
-        display: none;
+    img {
+        max-width: 100%;
+        background: var(--bs-body-bg);
     }
+}
 
-    scrollbar-width: none;
+.home-title {
+    font-weight: 600;
+}
+
+.home-banner {
+    background: var(--bs-secondary-bg);
+    border-radius: 16px;
+    
+}
+
+.details-button {
+    border-radius: 0;
+}
+
+.course-detail-card {
+    background: var(--bs-secondary-bg);
 }

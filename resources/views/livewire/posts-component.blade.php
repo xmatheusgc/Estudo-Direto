@@ -29,11 +29,11 @@
             </div>
         @else
         @foreach($posts as $post)
-            <div class="post-card d-flex flex-column flex-sm-row align-items-start border mb-3 m-3 rounded position-relative">
+            <div class="post-card d-flex flex-column flex-sm-row align-items-start border mb-3 m-3 rounded position-relative shadow-sm">
                 <div class="post-content d-flex flex-wrap flex-column flex-sm-row w-100">
-                    <span class="author-container d-flex gap-1 w-100 p-3">
+                    <span class="author-container d-flex align-items-center gap-1 w-100 p-3">
                         @if($post->user && $post->user->avatar)
-                            <img src="{{ $post->user->avatar }}" alt="User avatar" class="img-fluid rounded-circle" style="width: 3.5rem;">
+                            <img src="{{ $post->user->avatar }}" alt="User avatar" class="img-fluid rounded-circle user-avatar">
                         @else
                             <i class='bx bx-user-circle'></i>
                         @endif

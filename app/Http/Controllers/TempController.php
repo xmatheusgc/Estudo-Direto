@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Course;
 
 class TempController extends Controller
 {
     public function home()
     {
-        return view('home.index');
+        $featuredCourses = Course::take(6)->get(); 
+        return view('home.index', compact('featuredCourses'));
     }
 
     public function about()

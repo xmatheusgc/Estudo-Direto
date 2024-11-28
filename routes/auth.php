@@ -10,6 +10,9 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/register', [AuthController::class, 'showRegister'])->name('auth.register');
     Route::post('/register', [AuthController::class, 'register'])->name('auth.register.submit');
+
+    Route::get('/register/company', [AuthController::class, 'showCompanyRegister'])->name('auth.register.company');
+    Route::post('/register/company', [AuthController::class, 'registerCompany'])->name('auth.register.company.submit');
 });
 
 Route::middleware('auth')->group(function () {
@@ -28,3 +31,4 @@ Route::prefix('login')->name('login.')->group(function () {
 });
 
 Route::get('/auth/success', [OAuthController::class, 'success'])->name('auth.success');
+

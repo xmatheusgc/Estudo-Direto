@@ -28,8 +28,6 @@
             <div class="message-box" id="other-message">
                 oi
             </div>
-
-            {{-- <div class="message-box" id="user-message"></div> --}}
         </div>
     </div>
 </main>

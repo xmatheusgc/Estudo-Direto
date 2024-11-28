@@ -4,23 +4,27 @@
 
 @section('content')
 
-<main>
-    <div class="contact-form">
-        <h2>Contato</h2>
-        <form action="" method="POST">
-            @csrf
-            <label for="name">Nome</label>
-            <input type="text" id="name" name="name" required>
+<main class="d-flex justify-content-center align-items-center">
+    <form action="" method="POST" class="card-shape p-4 rounded">
+        @csrf
+        <h2 class="mb-4">Contato</h2>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
 
-            <label for="message">Mensagem</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+        <div class="mb-3">
+            <label for="message" class="form-label">Mensagem</label>
+            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+        </div>
 
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
 </main>
 
 @endsection

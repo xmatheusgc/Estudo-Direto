@@ -40,15 +40,17 @@
     <ul class="d-flex align-items-center justify-content-end gap-1 p-0 m-0 nav-utils">
       <li>
         @if(Auth::check())
-          <a id="account-img" href="#">
-            @if(Auth::user()->profile_image)
-              <img src="{{ asset('storage/' . Auth::user()->profile_image) }}" alt="Foto de Perfil" class="profile-icon">
+          <a id="account-img" href="{{ route('profile.show', ['user' => Auth::user()]) }}">
+            @if(Auth::user()->avatar)
+              <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="Foto de Perfil" class="user-profile">
             @else
-              <i class='bx bx-user-circle account-icon'></i>
+              <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="Foto de Perfil" class="user-profile">
             @endif
           </a> 
         @else
-          <a href="{{ route('auth.login') }}" class="d-none d-md-flex align-items-center gap-1 p-2"><i class='bx bx-user-circle'></i>Login</a></li>
+        <a href="{{ route('auth.login') }}" class="d-none d-md-flex align-items-center gap-1 p-2">
+            <i class='bx bx-user-circle'></i>Login
+        </a>
         @endif
       </li>
 

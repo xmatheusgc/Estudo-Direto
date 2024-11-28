@@ -12,9 +12,12 @@ Route::get('/blog', [TempController::class, 'blog'])->name('blog');
 Route::middleware(['auth'])->group(function () {
     Route::get('/community', [TempController::class, 'community'])->name('community');
     Route::get('/calendar', [TempController::class, 'calendar'])->name('calendar');
-});
 
-Route::get('/profile/{user}', [UserProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile', [UserProfileController::class, 'showProfile'])->name('profile.show');
+    Route::get('/profile/{user}/edit', [UserProfileController::class, 'editProfile'])->name('profile.edit');
+    Route::post('/profile/update', [UserProfileController::class, 'updateProfile'])->name('profile.update');
+    Route::put('/profile/{user}', [UserProfileController::class, 'updateProfile'])->name('profile.update');
+});
 
 require base_path('routes/auth.php');
 require base_path('routes/courses.php');

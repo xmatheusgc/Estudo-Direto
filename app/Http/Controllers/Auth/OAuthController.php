@@ -33,9 +33,10 @@ class OAuthController extends Controller
                 ]
             );
     
+            $user->assignRole('user');
             Auth::login($user);
-    
             return view('auth.success');
+            
         } catch (\Exception $e) {
             \Log::error('Google Login Error: ' . $e->getMessage(), [
                 'trace' => $e->getTraceAsString(),
@@ -64,6 +65,7 @@ class OAuthController extends Controller
                 ]
             );
 
+            $user->assignRole('user');
             Auth::login($user);
             return view('auth.success');
 
@@ -90,6 +92,7 @@ class OAuthController extends Controller
                 ]
             );
 
+            $user->assignRole('user');
             Auth::login($user);
             return view('auth.success');
 

@@ -1,5 +1,5 @@
-<section class="comments-section">
-    <h2>Comentários</h2>
+<section class="comments-section my-5">
+    <h1>Comentários</h1>
     <div class="comments-scroll p-1">
         @foreach ($comments as $comment)
         <div class="comment border rounded my-2 p-4 position-relative">

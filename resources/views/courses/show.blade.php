@@ -3,23 +3,39 @@
 @section('title', $course->title)
 
 @section('content')
-<main>
-    <h1>{{ $course->title }}</h1>
-    
-    <p><strong>Descrição:</strong> {{ $course->description }}</p>
 
-    @if($course->video)
-        <p><strong>Vídeo:</strong> <a href="{{ $course->video }}" target="_blank">Assistir ao vídeo</a></p>
-    @endif
+<main class="d-flex justify-content-center align-items-center flex-column">
+    <div class="container">
+        <h1 class="card-title my-5">{{ $course->title }}</h1>
+        <div class="col">
+            <div class="card">
+                @php
+                    function convertToEmbed($videoUrl) {
+                        if (preg_match('/youtu\.be\/([A-Za-z0-9_-]{11})/', $videoUrl, $matches)) {
+                            return 'https://www.youtube.com/embed/' . $matches[1];
+                        }
 
-    @if($course->exercises)
-        <p><strong>Exercícios:</strong> {{ $course->exercises }}</p>
-    @endif
+                        if (preg_match('/youtube\.com\/embed\/([A-Za-z0-9_-]{11})/', $videoUrl, $matches)) {
+                            return $videoUrl;
+                        }
 
-    @if($course->resources)
-        <p><strong>Recursos:</strong> <a href="{{ $course->resources }}" target="_blank">Acessar recursos</a></p>
-    @endif
+                        return null;
+                    }
 
-    <a href="{{ route('courses.index') }}">Voltar para a lista de cursos</a>
+                    $videoEmbedUrl = convertToEmbed($course->video);
+                @endphp
+
+                <iframe src="{{ $videoEmbedUrl }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="height: 500px;"></iframe>
+                <div class="card-body course-detail-card">
+                    <p class="card-text">{{ $course->description }}</p>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <a href="{{ route('courses.index') }}" class="back-button btn btn-primary my-3">Voltar</a>
 </main>
+
+
+  
 @endsection
