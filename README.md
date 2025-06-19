@@ -39,36 +39,45 @@ Estudo Direto é uma plataforma de aprendizagem online dedicada a fornecer recur
 ## Como rodar o projeto
 
 1. **Clone o repositório**
+
 2. **Instale as dependências do PHP:**
    ```sh
    composer install
    ```
+
 3. **Instale as dependências do frontend:**
    ```sh
    npm install
    ```
+
 4. **Copie o arquivo de exemplo de ambiente:**
    ```sh
    cp .env.example .env
    ```
+
 5. **Gere a chave da aplicação:**
    ```sh
    php artisan key:generate
    ```
+
 6. **Configure o banco de dados no `.env` (por padrão usa SQLite):**
    - Para SQLite, basta garantir que o arquivo `database/database.sqlite` exista.
+
 7. **Rode as migrations:**
    ```sh
    php artisan migrate
    ```
+
 8. **(Opcional) Popule o banco com dados de exemplo:**
    ```sh
    php artisan db:seed
    ```
+
 9. **Inicie o servidor de desenvolvimento:**
    ```sh
    php artisan serve
    ```
+
 10. **Inicie o frontend (Vite):**
     ```sh
     npm run dev
